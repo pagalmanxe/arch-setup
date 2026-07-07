@@ -1,0 +1,10 @@
+show=run
+prompt= 
+width=420
+height=420
+location=center
+columns=1
+font="JetBrainsMono Nerd Font 14"
+allow_images=true
+image_size=24
+style=~/.config/wofi/style.css

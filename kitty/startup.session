@@ -1,0 +1,3 @@
+# kitty startup session: run fastfetch, then open an interactive shell
+launch fastfetch
+launch --type=tab

@@ -1,0 +1,61 @@
+/* Rosé Pine wofi launcher */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Mono", monospace;
+    font-size: 14px;
+}
+
+window {
+    margin: 0;
+    border: 2px solid #31748f;          /* pine */
+    border-radius: 12px;
+    background-color: rgba(31, 29, 46, 0.96);  /* surface */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+#input {
+    margin: 10px 12px 6px 12px;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #26233a;          /* overlay */
+    color: #e0def4;                     /* text */
+    border-bottom: 2px solid #eb6f92;   /* love */
+}
+
+#input:focus {
+    border-bottom: 2px solid #f6c177;   /* gold */
+}
+
+#inner-box {
+    margin: 4px 8px 10px 8px;
+    spacing: 4px;
+}
+
+#outer-box {
+    padding: 0;
+    background: transparent;
+}
+
+#scroll {
+    margin: 0;
+}
+
+#entry {
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #e0def4;
+}
+
+#entry:selected {
+    background-color: #31748f;          /* pine */
+    color: #191724;                     /* base */
+    font-weight: 700;
+}
+
+#text:selected {
+    color: #191724;
+}
+
+#img {
+    margin-right: 8px;
+}
