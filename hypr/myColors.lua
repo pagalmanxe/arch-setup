@@ -2,15 +2,15 @@
 -- To use: in hyprland.lua, uncomment `require("myColors")` and reference the table
 -- returned here, e.g. `local c = require("myColors"); hl.exec_cmd("hyprctl keyword general:col.active_border " .. c.foam)`
 return {
-    base        = "#140c09",
-    surface     = "#1a110e",
-    overlay     = "#322824",
-    muted       = "#d8c2ba",
-    text        = "#f1dfd9",
+    base        = "#0f0d13",
+    surface     = "#141318",
+    overlay     = "#2b292f",
+    muted       = "#cac4cf",
+    text        = "#e6e1e9",
     love        = "#ffb4ab",
-    gold        = "#d2c78f",
-    rose        = "#e6beae",
-    pine        = "#5d4034",
-    foam        = "#ffb596",
-    iris        = "#71361a",
+    gold        = "#eeb8ca",
+    rose        = "#cbc3dc",
+    pine        = "#494458",
+    foam        = "#cdbdff",
+    iris        = "#4b3e76",
 }

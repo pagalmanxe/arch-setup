@@ -20,7 +20,9 @@ type = "SchemeTonalSpot"
 post_hook = "pkill -SIGUSR2 waybar || true"
 
 [templates.hyprcolors]
-input_path = "./templates/myColors.lua"
-output_path = "/home/laliguras/.config/hypr/myColors.lua"
+input_path = "./templates/matugen-colors.lua"
+output_path = "/home/laliguras/.config/hypr/matugen-colors.lua"
 index = 1
 type = "SchemeTonalSpot"
+# Apply border colors live: reload Hyprland so it re-reads the generated snippet
+post_hook = "hyprctl reload &"

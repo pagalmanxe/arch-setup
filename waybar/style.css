@@ -1,15 +1,15 @@
 /* Matugen-generated waybar theme (derived from wallpaper) */
-@define-color base      #140c09;
-@define-color surface   #1a110e;
-@define-color overlay   #322824;
-@define-color muted     #d8c2ba;
-@define-color text      #f1dfd9;
+@define-color base      #0f0d13;
+@define-color surface   #141318;
+@define-color overlay   #2b292f;
+@define-color muted     #cac4cf;
+@define-color text      #e6e1e9;
 @define-color love      #ffb4ab;
-@define-color gold      #d2c78f;
-@define-color rose      #e6beae;
-@define-color pine      #5d4034;
-@define-color foam      #ffb596;
-@define-color iris      #71361a;
+@define-color gold      #eeb8ca;
+@define-color rose      #cbc3dc;
+@define-color pine      #494458;
+@define-color foam      #cdbdff;
+@define-color iris      #4b3e76;
 
 * {
     border: none;
