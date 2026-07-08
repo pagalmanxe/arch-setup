@@ -5,10 +5,11 @@ prefer = "darkness"
 caching = true
 source_color_index = 0
 
+# Wallpaper is already set by Variety's set_wallpaper script (via awww),
+# so matugen must NOT set it again — only regenerate the theme.
 [config.wallpaper]
-set = true
-# Set wallpaper through awww (your autostart wallpaper backend)
-command = "awww img -o eDP-1 {{ image }}"
+set = false
+command = "true"
 
 [templates.waybar]
 input_path = "./templates/waybar.css"

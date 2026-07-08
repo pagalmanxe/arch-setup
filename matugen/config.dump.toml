@@ -1,0 +1,16 @@
+[config]
+version_check = false
+fallback_color = "#ffbf9b"
+prefer = "darkness"
+caching = false
+source_color_index = 0
+
+[config.wallpaper]
+set = false
+command = "true"
+
+[templates.dump]
+input_path = "./templates/dump.txt"
+output_path = "/tmp/matugen-dump.txt"
+index = 0
+type = "SchemeTonalSpot"

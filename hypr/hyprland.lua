@@ -368,11 +368,10 @@ hl.window_rule({
 ------------------------------------------------------------------
 
 hl.on("hyprland.start", function ()
-    -- Wallpaper: awww (hyprpaper 0.8.4 is broken on Hyprland 0.55.4 and never
-    -- paints). awww-daemon serves the background; gunbalamanxe is applied via awww.
+    -- Wallpaper: awww (hyprpaper is broken on Hyprland 0.55.4; swww not packaged).
     hl.exec_cmd("awww-daemon &")
     hl.exec_cmd("awww img -o eDP-1 /home/laliguras/Pictures/wallpapers/gunbalamanxe.png &")
-    -- Variety as the wallpaper manager (uses awww under the hood)
+    -- Variety as the wallpaper manager (drives awww via set_wallpaper script)
     hl.exec_cmd("env -u PYTHONPATH PATH=/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/bin HOME=/home/laliguras XDG_RUNTIME_DIR=/run/user/1000 WAYLAND_DISPLAY=wayland-1 XDG_CURRENT_DESKTOP=Hyprland DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus GDK_BACKEND=wayland GIO_USE_VFS=local /usr/bin/python3.14 /usr/sbin/variety --profile default &")
     hl.exec_cmd("waybar")
     hl.exec_cmd("swaync")
@@ -397,3 +396,6 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("wofi --show drun"))
 
 -- Reload waybar styling quickly
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("pkill -f waybar; waybar &"))
+
+-- Re-theme the rice from a wallpaper (matugen): SUPER + X opens a wallpaper picker
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("wp-theme.sh"))

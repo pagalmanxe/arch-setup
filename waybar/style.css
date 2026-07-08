@@ -1,15 +1,15 @@
-/* Rosé Pine waybar theme */
-@define-color base      #191724;
-@define-color surface   #1f1d2e;
-@define-color overlay   #26233a;
-@define-color muted     #6e6a86;
-@define-color text      #e0def4;
-@define-color love      #eb6f92;
-@define-color gold      #f6c177;
-@define-color rose      #ebbcba;
-@define-color pine      #31748f;
-@define-color foam      #9ccfd8;
-@define-color iris      #c4a7e7;
+/* Matugen-generated waybar theme (derived from wallpaper) */
+@define-color base      #140c09;
+@define-color surface   #1a110e;
+@define-color overlay   #322824;
+@define-color muted     #d8c2ba;
+@define-color text      #f1dfd9;
+@define-color love      #ffb4ab;
+@define-color gold      #d2c78f;
+@define-color rose      #e6beae;
+@define-color pine      #5d4034;
+@define-color foam      #ffb596;
+@define-color iris      #71361a;
 
 * {
     border: none;
