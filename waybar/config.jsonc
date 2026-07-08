@@ -4,9 +4,9 @@
     "height": 30,
     "spacing": 6,
     "fixed-center": true,
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces","custom/hermes"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "battery", "clock", "tray"],
+    "modules-right": ["pulseaudio", "network", "battery", "tray"],
 
     "hyprland/workspaces": {
         "disable-scroll": false,
@@ -85,5 +85,15 @@
         "spacing": 8,
         "on-click": "",
         "show-passive-items": true
-    }
+    },
+    "custom/hermes": {
+    "format": "󱙺  {}",
+    "return-type": "json",
+    "interval": 1,
+    "exec": "cat /tmp/hermes_status.json",
+    "on-click": "alacritty --class hermes_floating -e hermes --tui",
+    "on-click-right": "pkill -9 hermes && notify-send 'Hermes Terminated'",
+    "tooltip": true
 }
+}
+

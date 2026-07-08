@@ -1,15 +1,15 @@
 /* Matugen-generated waybar theme (derived from wallpaper) */
-@define-color base      #130c0f;
-@define-color surface   #191114;
-@define-color overlay   #30282b;
-@define-color muted     #d4c2c7;
-@define-color text      #eedfe2;
+@define-color base      #0e0e13;
+@define-color surface   #131318;
+@define-color overlay   #2a292f;
+@define-color muted     #c8c5d0;
+@define-color text      #e5e1e9;
 @define-color love      #ffb4ab;
-@define-color gold      #f1bb98;
-@define-color rose      #e1bdca;
-@define-color pine      #593f4a;
-@define-color foam      #ffb0d0;
-@define-color iris      #6e334f;
+@define-color gold      #ebb9d0;
+@define-color rose      #c7c4dc;
+@define-color pine      #464559;
+@define-color foam      #c5c0ff;
+@define-color iris      #444078;
 
 * {
     border: none;
@@ -120,4 +120,49 @@ window#waybar {
 }
 .modules-right {
     margin-right: 4px;
+}
+
+/* ============================================================
+   Hermes Agent HUD (custom/hermes)
+   waybar reads /tmp/hermes_status.json (return-type: json);
+   the `class` field maps to the state below for recolouring.
+   ============================================================ */
+#custom-hermes {
+    background: qlineargradient(linear, left top, left bottom, stop 0 #5e81ac, stop 1 #81a1c1);
+    color: #eceff4;
+    padding: 0 15px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+/* waiting / no active task */
+#custom-hermes.idle {
+    background: #a3be8c; /* green */
+}
+
+/* reasoning / planning / reading */
+#custom-hermes.thinking {
+    background: #ebcb8b; /* amber */
+    color: #2e3440;
+}
+
+/* actively acting on the desktop (e.g. moving the mouse) */
+#custom-hermes.working {
+    background: #bf616a; /* red */
+    animation: blink-working 2s ease-in-out infinite;
+}
+
+/* hit a snag / retrying */
+#custom-hermes.error {
+    background: #d08770; /* orange */
+}
+
+/* task finished */
+#custom-hermes.done {
+    background: #a3be8c; /* green */
+}
+
+@keyframes blink-working {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.55; }
 }
