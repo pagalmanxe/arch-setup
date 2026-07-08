@@ -1,0 +1,22 @@
+[config]
+version_check = false
+fallback_color = "#ffbf9b"
+prefer = "darkness"
+caching = false
+source_color_index = 0
+
+[config.wallpaper]
+set = false
+command = "true"
+
+[templates.waybar]
+input_path = "./templates/waybar.css"
+output_path = "/tmp/matugen-test-waybar.css"
+index = 1
+type = "SchemeTonalSpot"
+
+[templates.hyprcolors]
+input_path = "./templates/myColors.lua"
+output_path = "/tmp/matugen-test-myColors.lua"
+index = 1
+type = "SchemeTonalSpot"

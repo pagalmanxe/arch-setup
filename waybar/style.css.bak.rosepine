@@ -1,0 +1,123 @@
+/* Rosé Pine waybar theme */
+@define-color base      #191724;
+@define-color surface   #1f1d2e;
+@define-color overlay   #26233a;
+@define-color muted     #6e6a86;
+@define-color text      #e0def4;
+@define-color love      #eb6f92;
+@define-color gold      #f6c177;
+@define-color rose      #ebbcba;
+@define-color pine      #31748f;
+@define-color foam      #9ccfd8;
+@define-color iris      #c4a7e7;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+/* shared module pill */
+#workspaces,
+#mode,
+#window,
+#pulseaudio,
+#network,
+#battery,
+#clock,
+#tray {
+    background: @surface;
+    opacity: 0.92;
+    border-radius: 10px;
+    padding: 0 12px;
+    margin: 4px 3px;
+}
+
+/* workspaces */
+#workspaces {
+    padding: 0 8px;
+}
+#workspaces button {
+    color: @muted;
+    padding: 0 5px;
+    margin: 0 1px;
+    box-shadow: none;
+    text-shadow: none;
+    font-size: 10px;
+    transition: color 0.2s;
+}
+#workspaces button.active {
+    color: @love;
+    font-size: 13px;
+}
+#workspaces button.urgent {
+    color: @gold;
+}
+#workspaces button:hover {
+    color: @foam;
+}
+
+#window {
+    color: @rose;
+    font-style: italic;
+}
+
+#pulseaudio {
+    color: @foam;
+}
+#pulseaudio.muted {
+    color: @muted;
+}
+
+#network {
+    color: @pine;
+}
+#network.disconnected {
+    color: @muted;
+}
+
+#battery {
+    color: @gold;
+}
+#battery.charging {
+    color: @foam;
+}
+#battery.warning:not(.charging) {
+    color: @love;
+}
+#battery.critical:not(.charging) {
+    color: @love;
+    font-weight: 700;
+    animation: blink 1s steps(2) infinite;
+}
+@keyframes blink {
+    to { opacity: 0.4; }
+}
+
+#clock {
+    color: @iris;
+    font-weight: 700;
+}
+
+#tray {
+    padding: 0 8px;
+}
+#tray > widget {
+    padding: 0 2px;
+}
+
+/* left/right margins so pills don't hug edges */
+.modules-left {
+    margin-left: 4px;
+}
+.modules-right {
+    margin-right: 4px;
+}
