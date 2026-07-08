@@ -51,9 +51,9 @@ local browser     = "brave"
 -- Or execute your favorite apps at launch like this:
 --
 -- hl.on("hyprland.start", function () 
---   hl.exec_cmd(terminal)
+--  hl.exec_cmd(terminal)
 --   hl.exec_cmd("nm-applet")
---   hl.exec_cmd("waybar & hyprpaper & firefox")
+hl.exec_cmd("hermes desktop")
 -- end)
 
 
@@ -99,7 +99,8 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+            -- active_border is set by matugen's generated snippet (matugen-colors.lua),
+            -- sourced via dofile at the end of this file — it tracks the wallpaper.
             inactive_border = "rgba(595959aa)",
         },
 
@@ -379,8 +380,6 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("nm-applet 2>/dev/null &")
     hl.exec_cmd("kitty --session ~/.config/kitty/startup.session")
     hl.exec_cmd("hermes &")
-    -- Apply matugen border colors from the current wallpaper (generates if missing)
-    hl.exec_cmd("apply-matugen-colors.sh &")
 end)
 
 -- Lock screen (SUPER + L)

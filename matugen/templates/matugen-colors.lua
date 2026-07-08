@@ -13,7 +13,9 @@ end
 hl.config({
     general = {
         col = {
-            active_border   = { colors = { "rgba(" .. hx(c.primary) .. ")", "rgba(" .. hx(c.primary_container) .. ")" }, angle = 45 },
+            -- Solid accent border (single color). Force 8-digit hex (matugen .hex is
+            -- sometimes 6-digit; rgba() needs 8) so Hyprland accepts it.
+            active_border   = "rgba(" .. hx(c.primary):sub(1, 6) .. "ff)",
             inactive_border = "rgba(" .. hx(c.muted):sub(1, 6) .. "aa)",
         },
     },
