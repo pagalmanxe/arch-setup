@@ -1,0 +1,26 @@
+[config]
+version_check = false
+fallback_color = "#ffbf9b"
+prefer = "closest-to-fallback"
+caching = true
+contrast = 1.0
+source_color_index = 0
+
+[config.wallpaper]
+set = true
+# Set wallpaper through hyprpaper
+command = "hyprctl hyprpaper preload {{ image }} && hyprctl hyprpaper wallpaper ,{{ image }}"
+
+[templates.waybar]
+input_path = "./templates/waybar.css"
+output_path = "/home/laliguras/.config/waybar/style.css"
+index = 1
+type = "SchemeTonalSpot"
+# Reload waybar after regenerating its CSS
+post_hook = "pkill -SIGUSR2 waybar || true"
+
+[templates.hyprcolors]
+input_path = "./templates/myColors.lua"
+output_path = "/home/laliguras/.config/hypr/myColors.lua"
+index = 1
+type = "SchemeTonalSpot"
