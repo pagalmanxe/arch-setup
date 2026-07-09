@@ -46,13 +46,17 @@ local browser     = "brave"
 -------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
-
+hl.on("hyprland.start", function ()
+    -- This is the background process the Desktop UI talks to
+    hl.exec_cmd("hermes gateway start &") 
+    -- ... your other startup apps ...
+end)
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
 -- hl.on("hyprland.start", function () 
 --  hl.exec_cmd(terminal)
---   hl.exec_cmd("nm-applet")
+hl.exec_cmd("waybar")
 hl.exec_cmd("hermes desktop")
 -- end)
 
@@ -303,8 +307,8 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -d intel_backlight -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -d intel_backlight -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
@@ -321,6 +325,33 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 -- Example window rules that are useful
+
+------------------------------------------------------------------
+---- HERMES AGENT COMMAND BAR (FIXED FOR HL-LUA)              ----
+------------------------------------------------------------------
+
+-- 1. Use the library for basic properties it understands
+hl.window_rule({
+    name  = "hermes-bar-basic",
+    match = { class = "hermes-bar" },
+
+    float   = true,
+    size    = "900 150",
+    -- 'move' needs two numbers (x y). 
+    -- 510 300 is a generic center for 1080p; we will force 'center' below.
+    move    = "510 300", 
+    opacity = 0.95,
+})
+
+-- 2. Use raw commands for the "Advanced" Agent features 
+-- (This bypasses the 'unknown field' errors)
+hl.on("hyprland.start", function ()
+    -- These rules are applied directly to the compositor
+    hl.exec_cmd("hyprctl keyword windowrulev2 'center,class:^(hermes-bar)$'")
+    hl.exec_cmd("hyprctl keyword windowrulev2 'stayfocused,class:^(hermes-bar)$'")
+    hl.exec_cmd("hyprctl keyword windowrulev2 'dimaround,class:^(hermes-bar)$'")
+    hl.exec_cmd("hyprctl keyword windowrulev2 'noborder,class:^(hermes-bar)$'")
+end)
 
 local suppressMaximizeRule = hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.

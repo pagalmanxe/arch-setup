@@ -4,7 +4,7 @@
     "height": 30,
     "spacing": 6,
     "fixed-center": true,
-    "modules-left": ["hyprland/workspaces","custom/hermes"],
+    "modules-left": ["hyprland/workspaces","custom/hermes_prompt"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["pulseaudio", "network", "battery", "tray"],
 
@@ -86,14 +86,12 @@
         "on-click": "",
         "show-passive-items": true
     },
-    "custom/hermes": {
-    "format": "󱙺  {}",
-    "return-type": "json",
-    "interval": 1,
-    "exec": "cat /tmp/hermes_status.json",
-    "on-click": "alacritty --class hermes_floating -e hermes --tui",
-    "on-click-right": "pkill -9 hermes && notify-send 'Hermes Terminated'",
-    "tooltip": true
-}
+
+    "custom/hermes_prompt": {
+    "format": "󰚩  HERMES",
+    "on-click": "/home/laliguras/.local/bin/hermes-focus.sh",
+    "tooltip": false
+    }
+
 }
 
