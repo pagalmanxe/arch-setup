@@ -27,7 +27,7 @@ for d in hypr kitty waybar wofi matugen fastfetch bashrc README.md; do
 done
 # Sync helper scripts (~/.local/bin -> local-bin/ in repo)
 mkdir -p "$REPO/local-bin"
-for s in wp-theme.sh retheme-current.sh hermes-focus.sh; do
+for s in wp-theme.sh retheme-current.sh hermes-float.sh; do
   [ -f "$HOME/.local/bin/$s" ] && cp "$HOME/.local/bin/$s" "$REPO/local-bin/$s"
 done
 # rice-commit.sh itself lives in ~/.hermes/scripts; mirror it so the repo

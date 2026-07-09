@@ -353,6 +353,27 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("hyprctl keyword windowrulev2 'noborder,class:^(hermes-bar)$'")
 end)
 
+------------------------------------------------------------------
+---- HERMES FLOATING CHAT (textbox + output only, fresh session) ----
+---- Launched by the Waybar HERMES button -> hermes-float.sh     ----
+------------------------------------------------------------------
+
+hl.window_rule({
+    name  = "hermes-float",
+    match = { class = "hermes-float" },
+
+    float   = true,
+    size    = "1100 640",
+    opacity = 0.97,
+})
+
+hl.on("hyprland.start", function ()
+    hl.exec_cmd("hyprctl keyword windowrulev2 'center,class:^(hermes-float)$'")
+    hl.exec_cmd("hyprctl keyword windowrulev2 'dimaround,class:^(hermes-float)$'")
+    hl.exec_cmd("hyprctl keyword windowrulev2 'noborder,class:^(hermes-float)$'")
+    hl.exec_cmd("hyprctl keyword windowrulev2 'stayfocused,class:^(hermes-float)$'")
+end)
+
 local suppressMaximizeRule = hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
     name  = "suppress-maximize-events",

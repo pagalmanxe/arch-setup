@@ -89,7 +89,7 @@
 
     "custom/hermes_prompt": {
     "format": "󰚩  HERMES",
-    "on-click": "/home/laliguras/.local/bin/hermes-focus.sh",
+    "on-click": "/home/laliguras/.local/bin/hermes-float.sh",
     "tooltip": false
     }
 
